@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+{% extends "auctions/layout.html" %}
+
+{% block body %}
+    <h2>Active Listings</h2>
+
+
+
+    <div>
+        {% if list %}
+        <ul>
+            {% for auction in list  %}
+                <li><a href="{% url 'active' auction.title %}">{{ auction }}</a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>No item exist.</p>
+        {% endif %}
+    </div>   
+    <br>
+    {% if user.is_authenticated %}
+    <p>Create active listing<a href="{% url 'create_listing' %}"> here.</a></p>
+    {% else %}
+    <p>Login or Register an account to create active listings</p>
+    {% endif %}
+{% endblock %}
+
+
+

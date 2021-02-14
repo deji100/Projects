@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+
+{% extends 'rango/base.html' %}
+
+{% block title %}<title>Rango/page/{{ page.title }}</title>{% endblock %}
+
+{% block body %}
+    <div>
+        {% if page %}
+            <h3>{{ page.title }}</h3>
+        {% else %}
+            <p>Page does not exist</p>
+        {% endif %}
+    </div>
+    <a href="{% url 'rango:index' %}">Home Page</a>
+{% endblock %}

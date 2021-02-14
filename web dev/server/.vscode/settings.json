@@ -1,0 +1,6 @@
+{
+    "python.pythonPath": "venv\\Scripts\\python.exe",
+    "editor.fastScrollSensitivity": 10,
+    "files.autoSave": "afterDelay",
+    "editor.fontSize": 12
+}

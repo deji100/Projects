@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+{% extends 'rango/base.html' %}
+
+{% load static %}
+
+{% block title %}<title>Rango/Home</title>{% endblock %}
+
+{% block body %}
+    <h1>Rango says... <br></h1>
+    <div>
+        {% if request.user.is_authenticated %}
+        Hey {{ user.username }}!
+        {%%}
+    </div>
+
+    <div>
+        <h3>Most liked Categories</h3>
+        {% if cat %}
+        <ul>
+            {% for c in cat %}
+            <li><a href="{% url 'rango:category' c.name %}">{{ c.name }}</a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+            <p>There are no categories present.</p>
+        {% endif %}
+    </div>
+    <div>
+        <h3>Most viewed pages</h3>
+        {% if pages %}
+        <ul>
+            {% for p in pages %}
+            <li><a href="{% url 'rango:page' p.title %}">{{ p.title }}</a></li>
+            {% endfor %}
+        </ul>
+        {% else %}
+        <p>There are no pages ready to be displayed.</p>
+        {% endif %}
+    </div>
+
+    <div>
+        <img src="{% static 'rango/images/rango.jpg' %}" alt="">
+    </div>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'mysite/layout.html' %}
+
+{% block title %}Add Publisher{% endblock %}
+
+{% block body %}
+    <form action="{% url 'add_publisher' %}" method="post">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table}}
+        </table>
+        <p style="margin-left: 190px; margin-top:0"><input type="submit"></p>
+    </form>
+{% endblock %}

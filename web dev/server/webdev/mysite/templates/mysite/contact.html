@@ -1,0 +1,29 @@
+{% extends 'mysite/layout.html' %}
+
+{% block title %}Contact{% endblock %}
+
+{% block body %}
+    <h1>Contact us</h1>
+    <form action="." method="POST">
+        <div class="fieldwrapper">
+            {{ form.topic.errors }}
+            <label for="id_topic">Kind of feedback: </label>
+            {{ form.topic }}
+        </div>
+        <br>
+        <div class="fieldwrapper">
+            {{ form.message.errors}}
+            <label for="id_message">Your message: </label>
+            <br>
+            {{ form.message }}
+        </div>
+        <br>
+        <div class="fieldwrapper">
+            {{ form.sender.errors}}
+            <label for="id_sender">Your email (Optional): </label>
+            {{ form.sender }}
+        </div>
+        <br>
+        <input type="submit">
+    </form>
+{% endblock %}

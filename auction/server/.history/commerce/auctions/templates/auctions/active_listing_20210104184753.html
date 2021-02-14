@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+{% extends 'auctions/layout.html' %}
+
+{% block title %}Active Listing{% endblock %}
+
+{% block body %}
+    <div>
+        <div class="title">
+            <p><strong>Title: </strong>{{ auction_listing.title }}</p>
+        </div>
+        <div class="describe">
+            <p><strong>Description: </strong>{{ auction_listing.description }}</p>
+        </div>
+        <div class="bid">
+            <p><strong>Bid: </strong>{{ auction_listing.bid }}</p>
+        </div>
+        <div>
+            <p><strong>Image: </strong>{{ auction_listing.image.url }}</p>
+        </div>
+    </div>
+{% endblock %}

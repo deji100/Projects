@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+{% extends 'rango/base.html' %}
+
+{% block title %}<title>Rango/add page</title>{% endblock %}
+
+{% block body %}
+    <h2>Add Page to category</h2>
+    {% if cat %}
+        <h4>{{ cat.name }}</h4>
+    {% else %}
+        <p>Category does not exist.</p>
+    {% endif %}
+    <div>
+        <form action="{% url 'rango:addpage' cat.name %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="title" placeholder="Enter Page">
+            <br>
+            <br>
+            <input type="text" name="url" placeholder="Enter URL">
+            <br>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+        <br>
+        <br>
+        <br>
+    </div>
+{% endblock %}

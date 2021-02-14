@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+
+{% extends 'rango/base.html' %}
+
+{% load static %}
+
+{% block title %}<title>Rango/Login</title>{% endblock %}
+
+{% block body %}
+    <div class="login">
+        <div class="error">
+            {% if loginerror %}
+                {{ loginerror }}
+            {% endif %}
+        </div>
+        <form action="{% url 'rango:login' %}" method="POST" >
+            {% csrf_token %}
+            <input type="text" name="username" placeholder="Username" autofocus>
+            <br>
+            <br>
+            <input type="password" name="password" placeholder="Password">
+            <br>
+            <br>
+            <input type="submit" name="submit" value="Login">
+        </form>
+    </div>
+{% endblock %}

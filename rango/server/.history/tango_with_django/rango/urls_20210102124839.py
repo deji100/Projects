@@ -1,0 +1,5 @@
+from django.urs
+
+urlpatterns = [
+    
+]
