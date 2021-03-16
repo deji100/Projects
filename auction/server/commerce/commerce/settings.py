@@ -121,17 +121,19 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Media Files
-MEDIA_DIR = os.path.join(BASE_DIR, 'media')
-
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
 
+STATIC_DIR = [os.path.join(BASE_DIR, 'auctions/static')]
+
 
 # Media documentation
+# Media Files
+
+MEDIA_URL = '/media/'
+
+MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 
 MEDIA_ROOT = MEDIA_DIR
-MEDIA_URL = '/media/'

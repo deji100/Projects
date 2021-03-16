@@ -5,13 +5,11 @@ from django.shortcuts import render
 from django.urls import reverse
 from django.forms import ModelForm
 
-from .models import User, Listing
+from .models import User
 
 
 def index(request):
-    list = Listing.objects.all()
-    return render(request, "auctions/index.html", {"list": list})
-
+    return render(request, 'auctions/index.html', {})
 
 def login(request):
     if request.method == "POST":
@@ -64,26 +62,3 @@ def register(request):
     else:
         return render(request, "auctions/register.html")
 
-
-class CreateListing(ModelForm):
-    class Meta:
-        model = Listing
-        fields = ['title', 'description', 'bid', 'image']
-
-
-def create_listing(request):
-    if request.method == 'POST':
-        form = CreateListing(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('index'))
-        else:
-            return render(request, 'auctions/create_listing.html', {'form': form})
-    else:
-        return render(request, 'auctions/create_listing.html', {'form': CreateListing()})
-
-
-def active(request, auction_listing):
-    listing = Listing.objects.get(title=auction_listing)
-    return render(request, 'auctions/active_listing.html', {'listing': listing})
-        
