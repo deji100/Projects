@@ -1,0 +1,48 @@
+{% extends 'lay.html' %}
+{% load static %}
+{% block link %}<link rel="stylesheet" href="{% static 'css/create.css' %}"></link>{% endblock %}
+
+{% block body %}
+<div id="create">
+    <form action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <Label for="category">Category: </Label>
+        <select name="category" id="category">
+            <option value="none">Select Category</option>
+            {% for category in categories %}
+            <option value="{{ category.name }}">{{ category }}</option>
+            {% endfor %}
+        </select>
+        <input type="text" name="" id="" hidden>
+        <input type="text" name="" id="" hidden>
+        <input type="text" name="" id="" hidden>
+        <input type="text" name="" id="" hidden>
+        <br>
+        <br>
+        <label for="cat">Create Category:</label>
+        <br>
+        <input type="text" name="create-cat" id="cat" placeholder="Optional">
+        <br>
+        <br>
+        <label for="name">Name:</label>
+        <br>
+        <input type="text" name="name" id="name">
+        <br>
+        <br>
+        <label for="desc">Description:</label>
+        <br>
+        <textarea name="description" id="desc" cols="40" rows="10"></textarea>    
+        <br>    
+        <br>
+        <label for="price">Price:</label>
+        <br>
+        <input type="number" name="price" id="price">  
+        <br>  
+        <br>
+        <input type="file" name="image" id="file">  
+        <br>
+        <br>
+        <input type="submit" value="Submit" id="create-sub">
+    </form>
+</div>
+{% endblock %}

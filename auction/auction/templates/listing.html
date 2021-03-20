@@ -1,0 +1,93 @@
+{% extends 'lay.html' %}
+{% load static %}
+{% block link %}<link rel="stylesheet" href="{% static 'css/create.css' %}"></link>{% endblock %}
+
+{% block body %}
+<div class="bid-item">
+    <div id="sole-item">
+        {% if listing %}
+        <div class="sole">
+            <div class="image">
+                <img src="{{ listing.image.url }}" alt="">
+            </div>
+        </div>
+        <div id="sole-details">
+            <br>
+            <br>
+            <p class="item">Auctioneer: {{ listing.auctioneer|upper }}</p>
+            <br>
+            <p class="item">Category: {{ listing.category }}</p>
+            <br>
+            <p class="item">Name: {{ listing.name }}</p>
+            <br>
+            <p class="item">Description: {{ listing.description }}</p>
+            <br>
+            <p class="item">Starting Price: ${{ listing.price }}</p>
+            <br>
+            <p class="item">Highest Bid: ${{ bid.bid }}</p>
+            <br>
+            <p class="item">Current Owner: {{ bid.bidder }}</p>
+            <br>
+            <p class="item">Bid Time: {{ bid.date_time }}</p>
+            <br>
+            <form action="{% url 'add_to_watchlist' %}" method="POST">
+                {% csrf_token %}
+                <input type="text" name="listing_id" value="{{ listing.id }}" hidden>
+                <input type="submit" value="Add to Watchlist" id="">
+            </form>
+            <!-- <button data-listing="{{ listing.id }}" data-action="add" class="addBtn">Add to Watchlist</button> -->
+        {% endif %}
+        </div>
+    </div>
+    <br>
+    <div id="bid_comment">
+        <div id="form-comment">
+            <form action="{% url 'bid' listing.id %}" id="form-bid" method="POST">
+                {% csrf_token %}
+                <br>
+                <h3 id="h3bid">Place your bid here.</h3>
+                <br>
+                <input type="text" name="" id="" hidden>
+                <input type="text" name="" id="" hidden>
+                <input type="text" name="" id="" hidden>
+                <input type="text" name="" id="" hidden>
+                <input type="text" name="listing" value="{{ listing.id }}" id="" hidden>
+                <label for="bid">Bid:</label>
+                <br>
+                <input type="number" name="bid" class="comment-bid" id="bid" placeholder="$0">
+                <br>
+                <br>
+                Note: {{ note }}
+                <br>
+                <br>
+                <label for="comment">Comment: </label>
+                <br>
+                <textarea name="comment" class="comment-bid" id="comment" placeholder="Comment here."></textarea>
+                <br>
+                <br>
+                <input type="submit" value="Submit" id="submit">
+                <br>
+                <br>
+            </form>
+        </div>
+        <div id="comments">
+            <div id="comment-title">Comments</div>
+            {% if comments %}
+            {% for comment in comments %}
+            <div class="comment-product">
+                <span>#{{ comment.bidder }}</span>
+                <br>
+                <span>{{ comment.comment }}</span>
+                <br>
+                <span>{{ comment.date_time}}</span>
+                <hr>
+            </div>
+            {% endfor %}
+            {% else %}
+            <div>No comments.</div>
+            {% endif %}
+        </div>
+    </div>    
+    <br>
+</div>
+{% endblock %}

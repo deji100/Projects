@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(../images/back.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+#back-g {
+    width: 90vw;
+    height: 150%;
+    margin: auto;
+}
+
+nav {
+    width: 90vw;
+    margin: auto;
+    background-color: black;
+    opacity: .8;
+    display: flex;
+    justify-content: space-between;
+}
+
+#navi {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 40%;
+    height: 50px;
+}
+
+#navi li button:hover {
+    background-color: gold;
+    color: black;
+    transform: scale(1.1);
+    transition: transform 1s;
+}
+
+#navi li button{
+    padding: 10px;
+    background-color: rgb(115, 78, 10);
+    color: white;
+    font-size: 1rem;
+    font-size: bold;
+    border: none;
+    outline: none;
+    margin-right: -40px;
+    border-radius: 10px;
+}
+
+.but-m {
+    position: relative;
+    left: 60px;
+}
+
+#b {
+    transform: scale(1);
+    transition: transform 1.5s;
+}
+
+.username {
+    position: relative;
+    top: 8px;
+    color: white;
+    width: 15rem;
+    font-size: 1.5rem;
+    text-align: center;
+}

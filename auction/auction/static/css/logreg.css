@@ -1,0 +1,95 @@
+#form-div {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../images/back.jpeg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#login-form, #reg-form {
+    background-color: white;
+    border-radius: 10px;
+    opacity: .8;
+    width: 30%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#reg-form {
+    width: 35%;
+    height: 65%;
+}
+
+#login-form h4, #reg-form h4 {
+    font-size: 1.2rem;
+    position: relative;
+    bottom: 4rem;
+}
+
+#login-form h3, #reg-form h3 {
+    margin-top: 30px;
+    color: #895e0e;
+    font-size: 2.2rem;
+}
+
+.inp {
+    padding: .6rem;
+    width: 80%;
+    margin: auto;
+    margin-top: 13px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    outline-color: #895e0e;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+#inp2 {
+    margin-bottom: 8rem;
+}
+
+#sub1 {
+    position: relative;
+    bottom: 6rem;
+    outline: none;
+    border: none;
+    padding: 0.6rem;
+    color: white;
+    font-size: 1.2rem;
+    background-color: #895e0e;
+    border-radius: 10px;
+}
+
+#reg-form #sub {
+    margin-bottom: 6rem;
+    outline: none;
+    border: none;
+    padding: 0.6rem;
+    color: white;
+    font-size: 1.2rem;
+    background-color: #895e0e;
+    border-radius: 10px;
+}
+
+#sub1:hover, #reg-form #sub:hover {
+    transform: scale(1.1);
+    transition: transform .5s;
+}
+
+#no-account {
+    position: relative;
+    bottom: 2.5rem;
+    font-size: 1.2rem;
+}
+
+#no-account a {
+    text-decoration: none;
+}
+
+
+

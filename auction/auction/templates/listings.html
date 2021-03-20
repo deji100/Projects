@@ -1,0 +1,26 @@
+{% extends 'lay.html' %}
+{% load static %}
+{% block link %}<link rel="stylesheet" href="{% static 'css/create.css' %}"></link>{% endblock %}
+
+{% block body %}
+<div id="products-bg">
+    <div id="get-gridy">
+        {% for listing in listings %}
+            <div>
+                <div class="item-image">
+                    <img src="{{ listing.image.url }}" alt="">
+                </div>
+                <div class="item-contents">
+                    <div>
+                        <p>Category: {{ listing.category }}</p>
+                        <p>Name: {{ listing.name }}</p>
+                    </div>
+                    <div>
+                        <a href="{% url 'listing' listing.id %}"><button id="item-button">View</button></a>
+                    </div>
+                </div>
+            </div> 
+        {% endfor %}  
+    </div>
+</div>
+{% endblock %}

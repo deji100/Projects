@@ -1,0 +1,20 @@
+{% extends "lay.html" %}
+{% load static %}
+{% block link %}<link rel="stylesheet" href="{% static 'css/logreg.css' %}">{% endblock %}
+
+
+{% block body %}
+<div id="form-div">
+    <form action="{% url 'login' %}" method="POST"  id="login-form" >
+        {% csrf_token %}
+        <h3>Login</h3>
+        <input type="text" name="username" autofocus class="inp" id="inp1">
+        <input type="text" hidden>
+        <br>
+        <input type="password" name="password" class="inp" id="inp2">
+        <input type="submit" name="Submit" id="sub1">
+        <!-- <p>{{ error }}</p> -->
+        <p id="no-account">Don't have an account?<a href="{% url 'register' %}">Register here</a></p>
+    </form>
+</div>
+{% endblock %}

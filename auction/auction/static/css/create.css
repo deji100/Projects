@@ -1,0 +1,202 @@
+#create {
+    position: relative;
+    top: 50px;
+    width: 70%;
+    height: auto;
+    margin: auto;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    background-color: white;
+}
+
+#cat, #name, #price, #category{
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    outline-color: skyblue;
+    border: 1px solid black;
+}
+
+#desc {
+    border-radius: 5px;
+    outline-color: lightblue;
+}
+
+#file {
+    outline: none;
+    padding: 2px;
+}
+
+#create-sub {
+    outline: none;
+    padding: 5px;
+    background-color: blue;
+    color: white;
+}
+
+#get-gridy {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 200px));
+    grid-template-rows: repeat(auto-fit, minmax(350px, 350px));
+    grid-row-gap: 0px;
+    grid-column-gap: 40px;
+    width: 90%;
+    margin: auto;
+}
+
+#products-bg {
+    background-color: white;
+}
+
+#get-gridy > div {
+    margin-top: 30px;
+    width: 100%;
+    height: 75%;
+    box-shadow: 0px 0px 8px 1px gray;
+}
+
+.item-image {
+    max-width: 100%;
+    height: 100%;
+}
+
+.item-image > img {
+    width: 100%;
+    height: 100%;
+}
+
+.item-contents {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    color: white;
+    box-shadow: 1px 1px 1px 1px gray;
+}
+
+.item-contents p {
+    text-align: left;
+    font-size: 1.2rem;
+}
+
+#item-button {
+    font-size: 1.1rem;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.sole {
+    padding: 13%;
+    background-color: black;
+}
+
+.image {
+    width: 100%;
+}
+
+.image > img {
+    width: 100%;
+}
+
+.item {
+    font-size: 1.3rem;
+}
+
+#sole-item {
+    display: flex;
+    justify-content: space-between;
+}
+
+.bid-item {
+    background-color: white;
+}
+
+#sole-details {
+    width: 50%;
+    margin-left: 2%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#sole-details p {
+    width: 90%;
+    border-bottom: 1px solid gray;
+}
+
+#form-comment {
+    box-shadow: 0px 0px 4px 1px gray;
+    width: 30%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 15px;
+    border-radius: 10px;
+}
+
+#bid {
+    padding: 8px;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px 1px skyblue;
+}
+
+#comment {
+    width: 20rem;
+    height: 10rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    padding: .5rem;
+    box-shadow: 0px 0px 3px 1px skyblue;
+}
+
+#submit {
+    padding: 3px;
+}
+
+#h3bid {
+    text-align: center;
+}
+
+#submit {
+    background-color: blue;
+    color: white;
+    padding: .6rem;
+    outline: none;
+    border: none;
+}
+
+#bid_comment {
+    display: flex;
+    flex-direction: row;
+}
+
+#comments {
+    box-shadow: 0px 0px 5px 2px gray;
+    width: 50%;
+    margin-left: 11rem;
+}
+
+.comment-product span {
+    padding: .7rem;
+}
+
+#comment-title {
+    background-color: black;
+    color: white;
+    font-size: 2rem;
+    width: 100%;
+    text-align: center;
+    padding: .8rem;
+}
+
+#watch-item {
+    display: flex;
+    justify-content: space-evenly;
+}

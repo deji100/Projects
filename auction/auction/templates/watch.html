@@ -1,0 +1,34 @@
+{% extends "lay.html" %}
+{% load static %}
+{% block link %}<link rel="stylesheet" href="{% static 'css/create.css' %}"></link>{% endblock %}
+
+
+{% block body %}
+
+<div class="bid-item">
+    {% for watch in watchlist %}
+    <div id="watch-item">
+        <div>
+            <img src="{{ watch.listing.image.url}}" alt="">
+        </div>
+        <div>Name:
+            {{ watch.listing.name}}
+        </div>
+        <div>
+            Category:
+            {{ watch.listing.category }}
+        </div>
+        <div>
+            Current Owner:
+            {{ watch.bid.bidder }}
+        </div>
+        <div>
+            current Bid:
+            {{ watch.bid.bid }}
+        </div>
+        <button>Delete</button>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock%}
