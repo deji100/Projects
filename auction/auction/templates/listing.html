@@ -24,21 +24,23 @@
             <br>
             <p class="item">Starting Price: ${{ listing.price }}</p>
             <br>
-            <p class="item">Highest Bid: ${{ bid.bid }}</p>
+            <p class="item">Current Bid: ${{ bid.bid }}</p>
             <br>
-            <p class="item">Current Owner: {{ bid.bidder }}</p>
+            {% if listing.sold_out %}
+            <p class="item">Winner: {{ bid.bidder|upper }}</p>
+            {% else %}
+            <p class="item">Current Owner: {{ bid.bidder|upper }}</p>
+            {% endif %}
             <br>
             <p class="item">Bid Time: {{ bid.date_time }}</p>
             <br>
-            <form action="{% url 'add_to_watchlist' %}" method="POST">
-                {% csrf_token %}
-                <input type="text" name="listing_id" value="{{ listing.id }}" hidden>
-                <input type="submit" value="Add to Watchlist" id="">
-            </form>
-            <!-- <button data-listing="{{ listing.id }}" data-action="add" class="addBtn">Add to Watchlist</button> -->
+            <a href="{% url 'add_to_watchlist' listing.id %}"><button>Add to Watchlist</button></a>
         {% endif %}
         </div>
     </div>
+    {% if listing.sold_out %}
+    <div id="closeListing">Closed</div>
+    {% endif %}
     <br>
     <div id="bid_comment">
         <div id="form-comment">
@@ -75,7 +77,7 @@
             {% if comments %}
             {% for comment in comments %}
             <div class="comment-product">
-                <span>#{{ comment.bidder }}</span>
+                <span>#{{ comment.user }}</span>
                 <br>
                 <span>{{ comment.comment }}</span>
                 <br>

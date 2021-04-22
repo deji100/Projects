@@ -4,6 +4,15 @@
 
 {% block body %}
 <div id="create">
+    <div id="note">Note: <br> Only you can close this auction. <br>
+    <br>
+    To close an auction type 'close' (in lowercase)<br>
+    in the comment box of this listing's page. <br>
+    <br> 
+    After the auction has been closed. <br>
+    Bidders will be prohibited from bidding on this listing, <br>
+    but will be allowed to comment as much as they want.
+    </div>
     <form action="{% url 'create' %}" method="POST" enctype="multipart/form-data">
         {% csrf_token %}
         <Label for="category">Category: </Label>

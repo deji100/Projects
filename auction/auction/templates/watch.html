@@ -6,28 +6,27 @@
 {% block body %}
 
 <div class="bid-item">
-    {% for watch in watchlist %}
+    <br>
+    {% for watch in watches %}
     <div id="watch-item">
-        <div>
-            <img src="{{ watch.listing.image.url}}" alt="">
+        <div id="watch-image">
+            <a href="{% url 'listing' watch.listing.id %}"><img src="{{ watch.listing.image.url}}" alt=""></a>
         </div>
-        <div>Name:
+        <div class="watch">Name:
             {{ watch.listing.name}}
         </div>
-        <div>
+        <div class="watch">
             Category:
             {{ watch.listing.category }}
         </div>
-        <div>
-            Current Owner:
-            {{ watch.bid.bidder }}
-        </div>
-        <div>
-            current Bid:
-            {{ watch.bid.bid }}
-        </div>
-        <button>Delete</button>
+        {% if watch.listing.sold_out %}
+            <div id="red">.</div>
+        {% else %}
+            <div id="green">.</div>
+        {% endif %}
+        <a href="{% url 'delete' watch.id %} " id="delete"><button>Delete</button></a>
     </div>
+    <br>
     {% endfor %}
 </div>
 

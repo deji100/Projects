@@ -7,24 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
     {% block link %} {% endblock %}
-    <!-- <script>
-        const user = '{{ request.user }}';
-
-        function getToken(name) {
-            let cookieValue = null;
-            if (document.cookie && document.cookie !== '') {
-                const cookies = document.cookie.split(';');
-            for (let i = 0; i < cookies.length; i++) {
-                const cookie = cookies[i].trim();
-                // Does this cookie string begin with the name we want?
-                if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                    break; } } }
-                    return cookieValue;
-            }
-            const csrftoken = getToken('csrftoken');
-
-    </script> -->
     <title>Document</title>
 </head>
 <body>
@@ -41,15 +23,24 @@
         <ul id="navi">
         {% if request.user.is_authenticated %}
             <li><a href="{% url 'listings' %}"><button class="but">Active Listing</button></a></li>
-            <li><a href=""><button class="but cat">Categories</button></a></li>
+            <li>
+                <a href=""><button class="but cat">Categories</button></a>
+                <ul id="catty">
+                    {% for category in categories %}
+                        <li id="categ"><a href="" id="cat-link">{{ category }}</a></li>
+                    {% endfor %}
+                </ul>
+            </li> 
             <li><a href="{% url 'create' %}"><button class="but">Create</button></a></li>
             <li><a href="{% url 'logout' %}"><button class="but">Logout</button></a></li>
+            <li><a href="{% url 'watchlist' %}"><img src="{% static 'images/cart.jpg' %}" width="50rem" alt=""></a></li>
         {% else %}
             <li><a href="{% url 'login' %}"><button class="but but-m">Login</button></a></li>
             <li><a href="{% url 'register' %}"><button class="but">Register</button></a></li>
         {% endif %}
         </ul>
     </nav>
+    
     <div id="back-g">
         {% block body %}
         {% endblock %}    
