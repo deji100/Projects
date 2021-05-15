@@ -1,0 +1,161 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block store %}
+<!-- Container for the image gallery -->
+<div class="prod-container">
+<br>
+<br>
+    <!-- Full-width images with number text -->
+    <div class="mySlides">
+      <div class="numbertext">1 / 4</div>
+        <img src="{{ product.imageUrl }}" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">2 / 4</div>
+        <img src="{{ product.imageUrl2 }}" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">3 / 4</div>
+        <img src="{{ product.imageUrl3 }}" style="width:100%">
+    </div>
+
+    <div class="mySlides">
+      <div class="numbertext">4 / 4</div>
+        <img src="{{ product.imageUrl4 }}" style="width:100%">
+    </div>
+
+    <!-- Next and previous buttons -->
+    {% if product.imageUrl2 %}
+    <a class="pre" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="nex" onclick="plusSlides(1)">&#10095;</a>
+    {% endif %}
+    
+    <!-- Image text -->
+    <!-- <div class="caption-container">
+      <p id="caption"></p>
+    </div> -->
+  
+    <!-- Thumbnail images -->
+    <div class="row">
+      {% if product.imageUrl2 %}
+      <div class="column">
+        <img class="demo cursor" src="{{ product.imageUrl }}" style="width:100%" onclick="currentSlide(1)" alt=" ">
+      </div>
+      {% endif %}
+      {% if product.imageUrl2 %}
+      <div class="column">
+        <img class="demo cursor" src="{{ product.imageUrl2 }}" style="width:100%" onclick="currentSlide(2)" alt=" ">
+      </div>
+      {% endif %}
+      {% if product.imageUrl3 %}
+      <div class="column">
+        <img class="demo cursor" src="{{ product.imageUrl3 }}" style="width:100%" onclick="currentSlide(3)" alt=" ">
+      </div>
+      {% endif %}
+      {% if product.imageUrl4 %}
+      <div class="column">
+        <img class="demo cursor" src="{{ product.imageUrl4 }}" style="width:100%" onclick="currentSlide(4)" alt=" ">
+      </div>
+      {% endif %}
+    </div>
+</div>
+<div class="details">
+  <div>{{ product.title }}</div>
+  <div>{{ product.category }}</div>
+  <div>{{ product.description }}</div>
+  <button><a href="{% url 'add_product' product.id %}">Save</a></button>
+  <button><a href="{% url 'cart' product.id %}">Add to cart</a></button>
+</div>
+<br>
+<br>
+<div>
+  <form action="{% url 'comment' product.id %}" method="POST">
+    {% csrf_token %}
+    <textarea name="comment" cols="100" rows="5" placeholder="Comment"></textarea>
+    <input type="submit" value="Submit">
+  </form>
+</div>
+
+<div>
+  {% if comments %}
+    {% for comment in comments %}
+      <div>
+        <img src="{{ customer.imageUrl }}" alt="">
+        <div>{{ customer }}</div>
+        <div>{{ comment.time }}</div>
+        <div>{{ comment.comment }}</div>
+      </div>
+    {% empty %}
+      <div>No Comment</div>
+    {% endfor %}
+  {% endif %}
+</div>
+
+<script>
+      var slideIndex = 1;
+showSlides(slideIndex);
+
+// Next/previous controls
+function plusSlides(n) {
+  showSlides(slideIndex += n);
+}
+
+// Thumbnail image controls
+function currentSlide(n) {
+  showSlides(slideIndex = n);
+}
+
+function showSlides(n) {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("demo");
+  var captionText = document.getElementById("caption");
+  if (n > slides.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = slides.length}
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";
+  dots[slideIndex-1].className += " active";
+  captionText.innerHTML = dots[slideIndex-1].alt;
+}
+  </script>
+  <footer>
+    <div class="foot-flex">
+      <div class="media">
+        <h5>Follow Us</h5><br>
+          <div class="img-cover">
+            <div class="foot-img-cover" title="Instagram">
+              <a href="#"><img src="{% static 'images/insta2.jpg' %}" alt=""></a>
+            </div>
+            <div class="foot-img-cover" title="Twitter">
+              <a href="#"><img src="{% static 'images/twit1.png' %}" alt=""></a>
+            </div>
+            <div class="foot-img-cover" title="Facebook">
+              <a href="#"><img src="{% static 'images/face3.png' %}" alt=""></a>
+            </div>
+            <div class="foot-img-cover" title="LinkedIn">
+              <a href="#"><img src="{% static 'images/linked2.png' %}" alt=""></a>
+            </div>
+          </div>
+      </div>
+      <div class="contact">
+        <h5>Contact Us</h5>
+        <div class="contact-info">
+          <div class="address">44, Itolo Street, Off Eric Moore Road, Surulere Lagos.</div>
+          <div>Phone: 09011735491</div>
+          <div>Email: adeyemideji9@gmail.com</div>
+          <div>Quick message? <a href="#"> Click here</a></div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="copyright">&copyLagos Today 2021. All Right Reserved.</div>
+  </footer>
+{% endblock %}

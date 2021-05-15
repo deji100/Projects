@@ -1,0 +1,355 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+nav {
+    width: 100vw;
+    height: 6%;
+    position: fixed;
+    z-index: 1;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(62, 94, 107);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.lagos {
+    font-family: 'Lobster', cursive;
+    font-size: 2vw;
+    margin-left: 2em;
+}
+
+nav span a {
+    text-decoration: none;
+    color: white;
+}
+
+nav span a:hover {
+    color: white;
+}
+
+.today {
+    font-family: 'Lobster', cursive;
+    font-size: 8vw;
+    text-align: center;
+}
+
+#nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 30%;
+    float: right;
+    margin-right: 50px;
+}
+
+#nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.4vw;
+
+}
+
+.nav-link {
+    margin: auto;
+}
+
+.drop {
+    width: 17%;
+    height: auto;
+    border-radius: 50%;
+    overflow: hidden;
+    background-color: rgb(62, 94, 107);
+    outline: none;
+    border: none;
+    position: relative;
+    left: 19rem;
+}
+
+.drop:hover {
+    background-color: rgb(62, 94, 107);
+}
+
+.drop img {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    border-radius: 50%;
+}
+
+#cart {
+    position: relative;
+    top: 7px;
+    border-radius: 50%;
+}
+
+#cart-count {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+    color: white;
+    position: absolute;
+    bottom: 24px;
+    right: 42px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-container {
+    width: 100%;
+    height: 93%;
+    position: absolute;
+    left: 0;
+    top: 6%;
+}
+
+.size1 {
+    width: 100%;
+    height: 100%;
+}
+
+.size2 {
+    width: 100%;
+    height: 100%;;
+}
+
+.slide-img {
+    width: 100%;
+    height: auto;
+}
+
+.protect-content {
+    border: 10px solid white;
+    width: 100%;
+    height: auto;
+    margin-bottom: 10rem;
+    padding: 2rem;
+}
+
+.content {
+    border: 8px solid black;
+}
+
+.contain {
+    position: relative;
+    top: 45rem;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url(../images/wood1.jpg)
+}
+
+.layout {
+    display: block;
+}
+
+.prev, .next {
+    position: absolute;
+    z-index: 0;
+    padding: 2rem;
+    width: 5rem;
+    height: 2rem;
+    margin: auto 0;
+    background-color: rgba(0, 0, 0, 0.685);
+}
+
+#pro-nav {
+    position: -webkit-sticky;
+    position: relative;
+    z-index: 0;
+    width: 100%;
+    margin: auto;
+    padding: .8rem;
+    background-color: rgb(62, 94, 107);
+    top: 44.5rem;
+    color: white;
+    font-size: 1.1vw;
+}
+
+
+#pro-nav span a {
+    text-decoration: none;
+    color: white;
+    padding: 1rem;
+    font-size: 1.1vw;
+}
+
+.cart_button {
+    color: white;
+    text-decoration: none;
+}
+
+.cart_button:hover {
+    color: white
+}
+
+.paginate {
+    position: relative;
+    top: 46rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pag {
+    color: black;
+}
+
+.foot-flex {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+footer {
+    margin-left: 0;
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 20%;
+    color: white;
+    background-color: rgb(30, 44, 49);
+}
+
+.foot-store, .foot-cat {
+    position: relative;
+    top: 45rem;
+}
+
+.media {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 1rem;
+}
+
+.img-cover {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.foot-img-cover {
+    width: 7%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.foot-img-cover img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 1rem;
+}
+
+.copyright {
+    background-color: rgb(62, 94, 107);
+    padding: .5rem;
+    margin: auto;
+    width: 100%;
+    text-align: center;
+    font-family: 'Lobster', cursive;
+    font: 2em;
+}
+
+/* Position the image container (needed to position the left and right arrows) */
+.prod-container {
+    position: relative;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+    width: 50%;
+    height: auto;
+  }
+
+  .mySlides img {
+      width: 100%;
+      height: auto;
+  }
+  
+  /* Add a pointer when hovering over the thumbnail images */
+  .cursor {
+    cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+  .pre,
+  .nex {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .nex {
+    right: 50%;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .pre:hover,
+  .nex:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+
+  .prod-container .row {
+      width: 77.9%;
+  }
+  
+  .prod-container .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Six columns side by side */
+  .column {
+    float: left;
+    width: 16.66%;
+  }
+  
+  /* Add a transparency effect for thumnbail images */
+  .demo {
+    opacity: 0.6;
+  }
+  
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }
