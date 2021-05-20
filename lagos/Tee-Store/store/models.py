@@ -47,6 +47,7 @@ Size = (
 class Product(models.Model):
     title = models.CharField(max_length=200, blank=True)
     category = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, blank=True)
+    color = models.CharField(max_length=100, null=True, blank=True)
     label = models.CharField(choices=Label, max_length=2, null=True, blank=True)
     size = models.CharField(choices=Size, max_length=2, null=True, blank=True)
     description = models.TextField(max_length=200, null=True, blank=True)
@@ -162,14 +163,6 @@ class Comment(models.Model):
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     comment = models.TextField(max_length=300, null=True, blank=True)
     time = models.DateTimeField(auto_now_add=True, null=True, blank=True)
-
-    def __str__(self):
-        return self.custormer.user.username
-    
-    
-class Complaint(models.Model):
-    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
-    message = models.TextField(max_length=500, null=True, blank=True)
 
     def __str__(self):
         return self.customer.user.username

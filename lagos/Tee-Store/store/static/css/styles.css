@@ -6,7 +6,7 @@
 
 nav {
     width: 100vw;
-    height: 6%;
+    height: 7.5%;
     position: fixed;
     z-index: 1;
     color: white;
@@ -59,7 +59,7 @@ nav span a:hover {
 }
 
 .drop {
-    width: 17%;
+    width: 16.3%;
     height: auto;
     border-radius: 50%;
     overflow: hidden;
@@ -67,23 +67,38 @@ nav span a:hover {
     outline: none;
     border: none;
     position: relative;
-    left: 19rem;
+    bottom: 1px;
+    left: 18rem;
+}
+
+.drop img {
+    width: 100%;
+    height: auto;
+    border-radius: 50%;
 }
 
 .drop:hover {
     background-color: rgb(62, 94, 107);
 }
 
-.drop img {
+.pro-drop {
+    width: 2%;
+    height: auto;
+    border-radius: 50%;
+    position: relative;
+    display: inline-block;
+    left: 0;
+}
+
+.pro-drop img {
     width: 100%;
     height: auto;
-    margin: auto;
     border-radius: 50%;
 }
 
 #cart {
     position: relative;
-    top: 7px;
+    top: .8rem;
     border-radius: 50%;
 }
 
@@ -140,10 +155,15 @@ nav span a:hover {
     position: relative;
     top: 45rem;
     width: 100%;
+    background-image: url(../images/wood1.jpg)
+}
+
+.contain .row .col {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    background-image: url(../images/wood1.jpg)
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .layout {
@@ -173,7 +193,6 @@ nav span a:hover {
     font-size: 1.1vw;
 }
 
-
 #pro-nav span a {
     text-decoration: none;
     color: white;
@@ -188,6 +207,11 @@ nav span a:hover {
 
 .cart_button:hover {
     color: white
+}
+
+.cat:hover {
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.205);
 }
 
 .paginate {
@@ -271,28 +295,34 @@ footer {
 /* Position the image container (needed to position the left and right arrows) */
 .prod-container {
     position: relative;
+    display: inline;
+    width: 50%;
   }
+
+.details {
+    display: inline;
+    width: 50%;
+}
   
   /* Hide the images by default */
-  .mySlides {
+.mySlides {
     display: none;
     width: 50%;
     height: auto;
   }
 
-  .mySlides img {
-      width: 100%;
-      height: auto;
+.mySlides img {
+    width: 100%;
+    height: auto;
   }
   
   /* Add a pointer when hovering over the thumbnail images */
-  .cursor {
+.cursor {
     cursor: pointer;
   }
   
   /* Next & previous buttons */
-  .pre,
-  .nex {
+.pre, .nex {
     cursor: pointer;
     position: absolute;
     top: 40%;
@@ -308,19 +338,19 @@ footer {
   }
   
   /* Position the "next button" to the right */
-  .nex {
+.nex {
     right: 50%;
     border-radius: 3px 0 0 3px;
   }
   
   /* On hover, add a black background color with a little bit see-through */
-  .pre:hover,
-  .nex:hover {
+.pre:hover,
+.nex:hover {
     background-color: rgba(0, 0, 0, 0.8);
   }
   
   /* Number text (1/3 etc) */
-  .numbertext {
+.numbertext {
     color: #f2f2f2;
     font-size: 12px;
     padding: 8px 12px;
@@ -328,28 +358,109 @@ footer {
     top: 0;
   }
 
-  .prod-container .row {
+.prod-container .row {
       width: 77.9%;
   }
   
-  .prod-container .row:after {
+.prod-container .row:after {
     content: "";
     display: table;
     clear: both;
   }
   
   /* Six columns side by side */
-  .column {
+.column {
     float: left;
     width: 16.66%;
   }
   
   /* Add a transparency effect for thumnbail images */
-  .demo {
+.demo {
     opacity: 0.6;
   }
   
-  .active,
-  .demo:hover {
+.active, .demo:hover {
     opacity: 1;
   }
+
+.comment-form {
+    padding: 10px;
+    width: 95%;
+    outline: none;
+    border: 1px solid lightblue;
+    border-radius: 10px;
+  }
+
+.comment-submit {
+    background-color: rgba(0, 0, 255, 0.685);
+    color: white;
+    outline: none;
+    position: relative;
+    bottom: 7px;
+    padding: 3px;
+    border-radius: 5px;
+  }
+
+.comment-section {
+    width: 100%;
+    height: auto;
+    overflow-wrap: break-word;
+    border: 1px solid gray;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgba(128, 128, 128, 0.199);
+    border: none;
+    box-shadow: .8px .5px 5px .3px gray;
+  }
+
+.saved {
+    position: relative;
+    top: 2rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+.saved-img {
+    width: 20%;
+    height: 20%;
+}
+
+.saved-img img {
+    width: 100%;
+    height: auto;
+    box-shadow: .5px .5px 15px .8px gray;
+}
+
+.no_saved_item {
+    margin: auto;
+    display: flex;
+    align-self: center;
+    position: relative;
+    top: 1.6rem;
+}
+
+.remove {
+    margin-right: 4rem; 
+    padding: 2px; 
+    background-color: rgba(255, 0, 0, 0.815); 
+    border: none; 
+    box-shadow:.5px .5px 6px .6px gray;
+}
+
+.remove:hover {
+    transform: scale(1.2);
+}
+
+.saved-item-details {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: auto;
+    border: none;
+    padding: 1rem;
+    box-shadow: .5px .5px 15px .8px gray;
+}

@@ -32,11 +32,7 @@
     <a class="pre" onclick="plusSlides(-1)">&#10094;</a>
     <a class="nex" onclick="plusSlides(1)">&#10095;</a>
     {% endif %}
-    
-    <!-- Image text -->
-    <!-- <div class="caption-container">
-      <p id="caption"></p>
-    </div> -->
+
   
     <!-- Thumbnail images -->
     <div class="row">
@@ -65,28 +61,34 @@
 <div class="details">
   <div>{{ product.title }}</div>
   <div>{{ product.category }}</div>
+  <div>{{ product.color }}</div>
   <div>{{ product.description }}</div>
-  <button><a href="{% url 'add_product' product.id %}">Save</a></button>
-  <button><a href="{% url 'cart' product.id %}">Add to cart</a></button>
+  <div>{{ product.price }}</div>
+  <div>Other available color on request.</div>
+  <button type="button" class="btn btn-primary"><a class="cart_button" href="{% url 'add_product' product.id %}">Save</a></button>
+  <button type="button" class="btn btn-success"><a class="cart_button" href="#">Add to cart</a></button>
+  
 </div>
 <br>
 <br>
 <div>
   <form action="{% url 'comment' product.id %}" method="POST">
     {% csrf_token %}
-    <textarea name="comment" cols="100" rows="5" placeholder="Comment"></textarea>
-    <input type="submit" value="Submit">
+    <textarea class="comment-form"; name="comment" placeholder="Comment"></textarea>
+    <input class="comment-submit" type="submit" value="Submit">
   </form>
 </div>
 
 <div>
   {% if comments %}
     {% for comment in comments %}
-      <div>
-        <img src="{{ customer.imageUrl }}" alt="">
-        <div>{{ customer }}</div>
-        <div>{{ comment.time }}</div>
-        <div>{{ comment.comment }}</div>
+      <div class="comment-section"> 
+        <div class="pro-drop">
+          <img src="{{ request.user.customer.imageUrl }}" alt="">
+        </div>
+        <div style="display: inline-block; font-size: 1.2rem; font-weight: bold;">{{ request.user }}</div><br>
+        <div style="display: inline-block; margin-left: 35px;">{{ comment.comment }}</div>
+        <div style="float: right; display: inline;">{{ comment.time.time }}</div>
       </div>
     {% empty %}
       <div>No Comment</div>
@@ -126,6 +128,7 @@ function showSlides(n) {
   captionText.innerHTML = dots[slideIndex-1].alt;
 }
   </script>
+  <br>
   <footer>
     <div class="foot-flex">
       <div class="media">

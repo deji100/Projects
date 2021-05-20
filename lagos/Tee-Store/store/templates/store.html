@@ -67,9 +67,11 @@
 
   <div id="pro-nav">
     <span>Category: </span>
-    <span><a href="{% url 'store' %}">All</a></span>
+    <span class="cat"><a href="{% url 'store' %}">All</a></span>
     {% for cat in category %}
-      <span><a href="{% url 'products' cat.id %}">{{ cat }}</a></span>
+      {% if cat.id %}
+      <span class="cat"><a href="{% url 'products' cat.id %}">{{ cat }}</a></span>
+      {% endif %}
     {% endfor %}
   </div>
   
@@ -77,7 +79,6 @@
     <div class="row">
       {% for product in products %}
       <div class="col">
-        <br>
         <div class="card" style="width: 18rem;">
           <a href="{% url 'product' product.id %}"><img src="{{ product.imageUrl }}" class="card-img-top" alt="..."></a>
           <div class="card-body carddy">
@@ -86,7 +87,6 @@
               <span style="float: right;"><h5>{{ product.price }}</h5></span>
           </div>
         </div>
-        <br>
       </div>
       {% endfor %}
     </div>

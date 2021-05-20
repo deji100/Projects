@@ -19,18 +19,24 @@
         <span class="lagos"><a href="{% url 'store' %}">Lagos Today</a></span>
         <div id="nav-links">
             <div class="dropdown nav-link">
-                <div class="btn btn-secondary drop" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
-                  <img src="{% static 'images/avatar.jpg' %}" alt="">
-                </div>
+              {% if not request.user.is_authenticated %}
+              <div class="btn btn-secondary drop" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="{% static 'images/avatar.jpg' %}" alt="">
+              </div>
+              {% else %}
+              <div class="btn btn-secondary drop" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="{{ request.user.customer.imageUrl }}" alt="">
+              </div>
+              {% endif %}
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                  <li><button class="dropdown-item" type="button">Profile</button></li>
-                  <li><button class="dropdown-item" type="button">Orders</button></li>
-                  <li><button class="dropdown-item" type="button">Saved Items</button></li>
-                  <li><button class="dropdown-item" type="button">Change Password</button></li>
+                  <li><button class="dropdown-item" type="button"><a style="color: black;" href="#">Profile</a></button></li>
+                  <li><button class="dropdown-item" type="button"><a style="color: black;" href="#">Orders</a></button></li>
+                  <li><button class="dropdown-item" type="button"><a style="color: black;" href="{% url 'saved_product' %}">Saved Products</a></button></li>
+                  <li><button class="dropdown-item" type="button"><a style="color: black;" href="#">Reset Password</a></button></li>
                   <hr>
-                  <li><button class="dropdown-item" type="button">Contact us</button></li>
+                  <li><button class="dropdown-item" type="button"><a style="color: black;" href="#">Contact us</a></button></li>
                   <hr>
-                  <li><button class="dropdown-item" type="button">Logout</button></li>
+                  <li><button class="dropdown-item" type="button"><a style="color: black;" href="#">Logout</a></button></li>
                 </ul>
               </div>
             <a href="#"><img id="cart" src="{% static 'images/cart.png' %}" alt="Cart"><div id="cart-count">0</div></a>

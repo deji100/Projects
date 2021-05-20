@@ -1,2 +1,77 @@
 {% extends 'layout.html' %}
 {% load static %}
+
+{% block store %}
+<div class="saved">
+    {% for product in products %}
+        <div class="saved-item-details">
+            <div class="saved-img">
+                <div><a href="{% url 'product' product.product.id %}"><img src="{{ product.product.imageUrl }}" alt=""></a></div>
+            </div>
+            <!-- <div>{{ product.product.title }}</div> -->
+            <div>{{ product.product }}</div>
+            <div>{{ product.product.price }}</div>
+            <button type="button" class="btn btn-danger"><a class="cart_button" href="{% url 'delete_product' product.id %}">Remove</a></button>
+        </div>
+    {% endfor %}
+    {% if not products %}
+    <div class="no_saved_item">No Saved Product</div>
+    {% endif %}
+</div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<footer>
+  <div class="foot-flex">
+    <div class="media">
+      <h5>Follow Us</h5><br>
+        <div class="img-cover">
+          <div class="foot-img-cover" title="Instagram">
+            <a href="#"><img src="{% static 'images/insta2.jpg' %}" alt=""></a>
+          </div>
+          <div class="foot-img-cover" title="Twitter">
+            <a href="#"><img src="{% static 'images/twit1.png' %}" alt=""></a>
+          </div>
+          <div class="foot-img-cover" title="Facebook">
+            <a href="#"><img src="{% static 'images/face3.png' %}" alt=""></a>
+          </div>
+          <div class="foot-img-cover" title="LinkedIn">
+            <a href="#"><img src="{% static 'images/linked2.png' %}" alt=""></a>
+          </div>
+        </div>
+    </div>
+    <div class="contact">
+      <h5>Contact Us</h5>
+      <div class="contact-info">
+        <div class="address">44, Itolo Street, Off Eric Moore Road, Surulere Lagos.</div>
+        <div>Phone: 09011735491</div>
+        <div>Email: adeyemideji9@gmail.com</div>
+        <div>Quick message? <a href="#"> Click here</a></div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="copyright">&copyLagos Today 2021. All Right Reserved.</div>
+</footer>
+{% endblock %}
